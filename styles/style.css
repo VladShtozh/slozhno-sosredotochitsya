@@ -196,13 +196,18 @@
 /* ниже адаптивы под разную ширину экрана */
 
 @media (min-width: 768px) {
+  .header__title {
+    text-indent: -20px;
+  }
+
   .main__article.article-odd {
     grid-template-columns: 1fr 2fr;
   }
 
   .main__article-title.article-even {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--padding);
   }
 
   .main__galery {
@@ -237,7 +242,7 @@
     grid-template-columns: calc(100% / 3 - var(--padding)) 2fr;
   }
 
-  .main__section.article-even {
+  .main__section-list.article-even {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-flow: column;
   }
