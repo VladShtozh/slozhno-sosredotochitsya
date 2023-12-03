@@ -219,6 +219,7 @@
   .main_galery-image.landscape {
     grid-column-start: auto;
     grid-column-end: span 2;
+    object-fit: cover;
   }
 
   .main_galery-image.portrait {
