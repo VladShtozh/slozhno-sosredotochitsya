@@ -1,17 +1,16 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
-
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   background-color: var(--background-color);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: var(--main-color);
 }
 
 .header {
-  background-image: var(--background-image);
-  background-size: cover;
-  background-position: center;
-  background-color: lightgray 50%;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   height: 100vh;
@@ -80,10 +79,11 @@
 
 .header__theme-menu-button {
   height: 26px;
-  padding:  0 13px;
+  padding: 0 13px;
   background-color: transparent;
   border: 0;
   text-transform: lowercase;
+  cursor: pointer;
 }
 
 .header__theme-menu-button_active {
@@ -125,9 +125,8 @@
 }
 
 .main {
-  padding: var(--main-padding-top-bottom) var(--padding) ;
+  padding: var(--main-padding-top-bottom) var(--padding);
   display: grid;
-  /*grid-row: repeat(4, 1fr);*/
   gap: var(--main-gap);
 }
 
@@ -140,7 +139,7 @@
   color: var(--nav-color);
 }
 
-.main__section {
+.main__section-list {
   display: grid;
   gap: 20px;
   line-height: 23.4px;
@@ -175,7 +174,7 @@
   max-width: 100%;
   width: 100%;
   height: 100%;
-  flex-shrink: 0;  
+  flex-shrink: 0;
 }
 
 .footer {
@@ -197,7 +196,6 @@
 /* ниже адаптивы под разную ширину экрана */
 
 @media (min-width: 768px) {
-
   .main__article.article-odd {
     grid-template-columns: 1fr 2fr;
   }
@@ -212,7 +210,7 @@
     grid-template-rows: 1fr 1fr auto;
     align-items: center;
   }
-  
+
   .main_galery-image.landscape {
     grid-column-start: auto;
     grid-column-end: span 2;
@@ -223,7 +221,6 @@
     grid-row-end: span 2;
     object-fit: cover;
   }
-
 }
 
 @media (min-width: 1024px) {
@@ -244,5 +241,4 @@
     grid-template-columns: repeat(3, 1fr);
     grid-auto-flow: column;
   }
-
 }

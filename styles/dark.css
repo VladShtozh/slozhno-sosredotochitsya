@@ -4,7 +4,6 @@
   переключая тему
 */
 
-
 .page.theme_dark {
   /* сохраните этот селектор в приведённом виде.
     Так стили написанные ниже будут иметь больший вес,
@@ -12,13 +11,10 @@
   */
   --background-color: #000028;
   --background-image: url(../images/cover-image-dark.png);
-  --accent-color: #FF0070;
-  --main-color: #F1B2CE;
-  --title-color: #DB00FF;
+  --accent-color: #ff0070;
+  --main-color: #f1b2ce;
+  --title-color: #db00ff;
   --contrast-color: var(--background-color);
   --nav-color: var(--accent-color);
-  --nav-color-hover: #FF007066;
+  --nav-color-hover: #ff007066;
 }
-
-
-
