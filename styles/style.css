@@ -1,5 +1,248 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-color: var(--background-color);
+  color: var(--main-color);
+}
+
+.header {
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-color: lightgray 50%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100vh;
+  min-height: 668px;
+}
+
+.decorated-zone {
+  padding: var(--padding);
+}
+
+.decorated-zone::after {
+  position: absolute;
+  align-self: end;
+  content: "";
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-color: var(--accent-color);
+  width: 25px;
+  height: 25px;
+}
+
+.decorated-zone::before {
+  position: absolute;
+  content: "";
+  border-top: 1px solid;
+  border-right: 1px solid;
+  border-color: var(--accent-color);
+  justify-self: end;
+  width: 25px;
+  height: 25px;
+}
+
+.header__lamp {
+  position: absolute;
+  color: var(--accent-color);
+  display: flex;
+  justify-self: end;
+}
+
+.header__lamp::after {
+  margin: 8px 9px 8px 10px;
+  content: "";
+  background-color: var(--accent-color);
+  filter: drop-shadow(0px 0px 4px);
+  border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+}
+
+.header__theme-menu {
+  color: var(--nav-color);
+  align-self: center;
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.header__theme-menu-button {
+  height: 26px;
+  padding:  0 13px;
+  background-color: transparent;
+  border: 0;
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: 0;
+  border-bottom: 1px solid;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--nav-color-hover);
+}
+
+.header__title {
+  color: var(--title-color);
+  text-shadow: 4px 4px 0px var(--accent-color);
+  font-size: var(--title-size);
+  font-weight: 700;
+  line-height: 82.5%;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.header__subtitle-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.header__subtitle-text {
+  width: max(355px, 50%);
+  line-height: 130%;
+}
+
+.main {
+  padding: var(--main-padding-top-bottom) var(--padding) ;
+  display: grid;
+  /*grid-row: repeat(4, 1fr);*/
+  gap: var(--main-gap);
+}
+
+.main__article {
+  display: grid;
+  gap: 20px;
+}
+
+.main__article-title {
+  color: var(--nav-color);
+}
+
+.main__section {
+  display: grid;
+  gap: 20px;
+  line-height: 23.4px;
+  font-weight: 400;
+}
+
+.main__section-element {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main__link {
+  text-decoration: none;
+  text-shadow: 1px 1px 0px var(--accent-color);
+}
+
+.main__section-subtitle {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  font-weight: 400;
+}
+
+.main__galery {
+  width: 100%;
+  display: grid;
+  gap: var(--padding);
+  align-items: center;
+}
+
+.main_galery-image {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;  
+}
+
+.footer {
+  height: 100vh;
+  min-height: 667px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.footer__title {
+  color: var(--title-color);
+  text-shadow: 2px 2px 0px var(--accent-color);
+  font-size: var(--title-size);
+  font-weight: 700;
+  line-height: 82.5%;
+}
+
+/* ниже адаптивы под разную ширину экрана */
+
+@media (min-width: 768px) {
+
+  .main__article.article-odd {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .main__article-title.article-even {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .main__galery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr auto;
+    align-items: center;
+  }
+  
+  .main_galery-image.landscape {
+    grid-column-start: auto;
+    grid-column-end: span 2;
+  }
+
+  .main_galery-image.portrait {
+    grid-row-start: auto;
+    grid-row-end: span 2;
+    object-fit: cover;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .header__theme-menu {
+    align-self: start;
+    justify-self: center;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .main__article.article-odd {
+    grid-template-columns: calc(100% / 3 - var(--padding)) 2fr;
+  }
+
+  .main__section.article-even {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: column;
+  }
+
 }
