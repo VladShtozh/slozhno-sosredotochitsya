@@ -27,7 +27,7 @@
   content: "";
   border-bottom: 1px solid;
   border-left: 1px solid;
-  border-color: var(--accent-color);
+  border-color: var(--nav-color);
   width: 25px;
   height: 25px;
 }
@@ -37,7 +37,7 @@
   content: "";
   border-top: 1px solid;
   border-right: 1px solid;
-  border-color: var(--accent-color);
+  border-color: var(--nav-color);
   justify-self: end;
   width: 25px;
   height: 25px;
@@ -91,8 +91,11 @@
   pointer-events: none;
 }
 
-.header__theme-menu-button:focus-visible {
+.header__theme-menu-button:focus {
   outline: 0;
+}
+
+.header__theme-menu-button:focus-visible {
   border-bottom: 1px solid;
 }
 
@@ -102,7 +105,7 @@
 
 .header__title {
   color: var(--title-color);
-  text-shadow: 4px 4px 0px var(--accent-color);
+  text-shadow: 4px 4px 0px var(--title-shadow-color);
   font-size: var(--title-size);
   font-weight: 700;
   line-height: 82.5%;
@@ -120,6 +123,7 @@
 }
 
 .header__subtitle-text {
+  font-weight: 700;
   width: max(355px, 50%);
   line-height: 130%;
 }
@@ -154,7 +158,19 @@
 
 .main__link {
   text-decoration: none;
-  text-shadow: 1px 1px 0px var(--accent-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.main__link:focus {
+  outline: 0;
+}
+
+.main__link:focus-visible {
+  outline: 1px solid var(--main-color);
+}
+
+.main__link:hover {
+  border-bottom: 1px solid var(--main-color);
 }
 
 .main__section-subtitle {
@@ -173,6 +189,8 @@
 .main_galery-image {
   width: 100%;
   flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
 }
 
 .footer {
@@ -185,7 +203,7 @@
 
 .footer__title {
   color: var(--title-color);
-  text-shadow: 2px 2px 0px var(--accent-color);
+  text-shadow: 2px 2px 0px var(--title-shadow-color);
   font-size: var(--title-size);
   font-weight: 700;
   line-height: 82.5%;
@@ -206,6 +224,14 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--padding);
+  }
+
+  .main__article-title.article-odd {
+    grid-row-end: 2 span;
+  }
+
+  .main__section-list.article-odd {
+    grid-column: 2;
   }
 
   .main__galery {
